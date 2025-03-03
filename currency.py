@@ -4,7 +4,6 @@ import requests
 def get_rate(from_currency, to_currency, api_key):
     url = f"https://v6.exchangerate-api.com/v6/{api_key}/latest/{from_currency}"
     response = requests.get(url)
-    # print (response.status_code)
 
     if response.status_code == 200:
         data = response.json()
@@ -19,7 +18,8 @@ def get_rate(from_currency, to_currency, api_key):
             return None 
     
     else :
-        print ("Failed to retrieve Exchange Reate data")
+        print ("Failed to retrieve the exchange Rate data")
+        return None
 
 # function to covert the currency from the amount that user input
 def convert_currency(amount, from_currency, to_currency, api_key):
@@ -28,7 +28,8 @@ def convert_currency(amount, from_currency, to_currency, api_key):
 
     if rate:
         converted_amount = amount * rate
-        print (f" {amount} {from_currency} of the converted amount is:  {converted_amount:.2f} {to_currency}")
+        print (f" {amount} {from_currency} of the converted amount is:  {converted_amount:.2f} {to_currency} \n THANK YOU! ")
+        
 
     else:
         print("Failed")
