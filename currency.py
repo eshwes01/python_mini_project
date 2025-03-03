@@ -10,7 +10,7 @@ def get_rate(from_currency, to_currency, api_key):
         data = response.json()
         print (data['conversion_rates'])
     
-        if ('result'== "success") :
+        if (data['result']== "success") :
             rate = data['conversion_rates']
             to_currency_rate = rate.get(to_currency)
             print (to_currency_rate)
@@ -18,6 +18,7 @@ def get_rate(from_currency, to_currency, api_key):
         else :
             print ("Error with API Key")
             return None 
+    
 
 # function to covert the currency from the amount that user input
 def convert_currency(amount, from_currency, to_currency, api_key):
@@ -26,7 +27,7 @@ def convert_currency(amount, from_currency, to_currency, api_key):
 
     if rate:
         converted_amount = amount * rate
-        print (converted_amount)
+        print (f" {amount} {from_currency} of the converted amount is:  {converted_amount:.2f}{to_currency}")
 
     else:
         print("Failed")
@@ -37,7 +38,4 @@ if __name__ == "__main__":
             from_currency = input ("Type currency you want to change from e.g USD ,GBP  : ")
             to_currency = input (" Type currency you want to change to e.g USD or GBP : ")
             amount = input (" Enter the amount : ")
-            convert_currency(amount,from_currency,to_currency,api_key)
-
-            
-            
+            convert_currency(float(amount),from_currency,to_currency,api_key)
