@@ -6,6 +6,19 @@ def get_rate(from_currency, to_currency, api_key):
     response = requests.get(url)
     print (response.status_code)
 
+
+def convert_currency(amount, from_currency, to_currency, api_key):
+    rate = get_rate(from_currency, to_currency, api_key)
+    print (rate)
+
+    if rate:
+        converted_amount = amount * rate
+        print (converted_amount)
+
+    else:
+        print("Failed")
+
+
    
 
 if __name__ == "__main__":
@@ -13,6 +26,7 @@ if __name__ == "__main__":
             from_currency = input ("Type currency you want to change from e.g USD or GBP: ")
             to_currency = input (" Add currency you want to change to e.g USD or GBP : ")
             amount = input (" Enter the amount : ")
+
 
             
             
