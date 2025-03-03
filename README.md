@@ -27,8 +27,9 @@ The script prints the result or today rate and converted output in the format: {
 
 * Save the Python Script:
 
-Save the code in a .py file, for example, currency_converter.py.
-Run the Python Script:
+Save the code in a .py file, for example, currency.py.
+
+* Run the Python Script:
 
 * Open a terminal or command prompt.
 
